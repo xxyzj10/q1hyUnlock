@@ -45,7 +45,8 @@ BA 17 00 00 80 B8 20 03 00 00 B9 50 01 00 00 0F 30
 另外还有个电容在三极管边上，应该为输入的滤波。  
 此方法需要修改bios调出隐藏的VDDQ 1.5V和1.6V选项  
 ![电路图](pics/三极管及电阻焊盘.jpg  )   
-或者修改bios下的turbopei EFI文件，将case1的00改成01，将case2的01改成10，则可实现1.35V和1.5V的VDDQ    
+或者不选择调出隐藏的VDDQ 1.5V和1.6V选项，  
+修改bios下的turbopei EFI文件，将case1的00改成01，将case2的01改成10，则补齐三极管和电阻后可实现1.35V和1.5V的VDDQ    
 ![电路图](pics/TurboPei_fix.png  )  
 
 
