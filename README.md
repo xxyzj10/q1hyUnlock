@@ -1,5 +1,5 @@
 # q1hyUnlock
-for some disscution of ICCMAX and vddq unlocking on q1hy modt
+for some disscutions of ICCMAX and vddq unlocking on q1hy modt
 
 ## ICCMAX电流墙
 主板在启动的初始化阶段禁用了VR Current Limit选项，所以即使用AMIBCP或者uefi tool修改了对应
