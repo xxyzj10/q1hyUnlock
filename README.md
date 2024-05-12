@@ -21,9 +21,31 @@ rdmsr 0x150
 
 ### 破解思路  
 方法1. 找到主板禁用VR Current Limit选项的代码，用IDA跳过代码  
-方法2. 在CPUDXE阶段插入上述指令使其每次启动都能执行，十六进制代码如下  
+方法2. 在DXE阶段插入上述指令使其每次启动都能执行，十六进制代码如下  
 BA 17 00 00 80 B8 20 03 00 00 B9 50 01 00 00 0F 30
-
+#### 方法2教程如下：
+1. 用**[uefiTool](https://github.com/LongSoft/UEFITool "uefiTool")。** 打开想要解锁电流墙的
+bios（module文件夹下已提供）  
+![教程](module/tutorial/1.png  ) 
+2. 按ctrl+F弹出搜索框，在Text选项卡中搜索acpidebug
+![教程](module/tutorial/2.png  ) 
+3. 双击底部的搜索结果会跳转到AcpiDebugDxe模块  
+![教程](module/tutorial/3.png  )   
+4. 选择PE32 image section 项目，右键选择Replace body  
+![教程](module/tutorial/4.png  )  
+5. 选择module文件夹下的Section_PE32_image_AcpiDebug_AcpiDebugDxe_body_XXXa.efi
+文件，一共提供了200a和400a两个，自行选择需要解锁的电流墙文件即可。选择后点击打开  
+6. 打开后如下图所示  
+![教程](module/tutorial/5.png  )  
+7. 选择右上角file->Save image file保存即可，后续按正常流程刷入即可。
+![教程](module/tutorial/6.png  )  
+8. 解锁400a电流墙效果如下  
+![教程](module/tutorial/result.jpg  )  
+### 此文件仅适用于q1hy modt itx版本，其余主板未知。魔改bios须自行承担刷坏的风险与责任。
+  
+  
+  
+  
 ## 内存VDDQ电压解锁
 此系列modt主板使用的内存PWM芯片为APW8828  
 电路图如下  
