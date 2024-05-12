@@ -24,7 +24,7 @@ rdmsr 0x150
 方法2. 在DXE阶段插入上述指令使其每次启动都能执行，十六进制代码如下  
 BA 17 00 00 80 B8 20 03 00 00 B9 50 01 00 00 0F 30
 #### 方法2教程如下：
-1. 用**[uefiTool](https://github.com/LongSoft/UEFITool "uefiTool")。** 打开想要解锁电流墙的
+1. 用 [UEFI Tool](https://github.com/LongSoft/UEFITool "uefiTool")。 打开想要解锁电流墙的
 bios（module文件夹下已提供）  
 ![教程](module/tutorial/1.png  ) 
 2. 按ctrl+F弹出搜索框，在Text选项卡中搜索acpidebug
