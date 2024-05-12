@@ -2,7 +2,7 @@
 for some disscutions of ICCMAX and vddq unlocking on q1hy modt
 
 ## ICCMAX电流墙 和 ring频率
-##### ICCMAX电流墙
+### ICCMAX电流墙
 主板在启动的初始化阶段禁用了VR Current Limit选项，所以即使用AMIBCP或者uefi tool修改了对应
 的数值，在启动阶段也不会生效。
 
