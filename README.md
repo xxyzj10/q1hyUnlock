@@ -46,7 +46,7 @@ bios（module文件夹下已提供）
 8. 解锁400a电流墙效果如下  
 ![教程](module/tutorial/result.jpg  )  
 
-### ring频率超频(目前无法保持频率，谨慎尝试)
+### ring频率超频
 主板默认开启ring down bin模式且无法通过主板的选项将其关闭，
 所以这里提供另一种思路用于ring超频。  
 
@@ -59,6 +59,7 @@ wrmsr 0x620 0x000000000000XXYY
 
 其中XX代表最小频率、YY代表最大频率  
  
+#### 教程同ICCMAX方法2，efi文件结尾带47ring的为ring超频版本，未带此字样的为默认版本。
 
 ### 此文件仅适用于q1hy modt itx版本，其余主板未知。魔改bios须自行承担刷坏的风险与责任。
 
