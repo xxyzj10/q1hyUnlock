@@ -46,7 +46,7 @@ bios（module文件夹下已提供）
 8. 解锁400a电流墙效果如下  
 ![教程](module/tutorial/result.jpg  )  
 
-### ring频率超频
+### ring频率超频(目前不稳定)
 主板默认开启ring down bin模式且无法通过主板的选项将其关闭，
 所以这里提供另一种思路用于ring超频。  
 
