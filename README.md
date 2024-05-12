@@ -5,7 +5,7 @@ for some disscutions of ICCMAX and vddq unlocking on q1hy modt
 主板在启动的初始化阶段禁用了VR Current Limit选项，所以即使用AMIBCP或者uefi tool修改了对应
 的数值，在启动阶段也不会生效。
 
-主板在bios初始化阶段（DXE）会对CPU内部msr寄存器进行读写操作以用于初始化CPU，其中
+主板在bios初始化阶段（DXE）会对CPU内部virtual msr寄存器进行读写操作以用于初始化CPU，其中
 就包括了设置ICCMAX电流墙。
 
 具体实现如下：
@@ -20,8 +20,10 @@ rdmsr 0x150
 寄存器地址为0x150，设定值为十六进制的0x280，转换为10进制为640，电流墙为其1/4即160A
 
 ### 破解思路  
-方法1. 找到主板禁用VR Current Limit选项的代码，用IDA跳过代码  
-方法2. 在DXE阶段插入上述指令使其每次启动都能执行，十六进制代码如下  
+##### 方法1. 
+找到主板禁用VR Current Limit选项的代码，用IDA跳过代码  
+##### 方法2.
+在DXE阶段插入上述指令使其每次启动都能执行，十六进制代码如下  
 BA 17 00 00 80 B8 20 03 00 00 B9 50 01 00 00 0F 30
 #### 方法2教程如下：
 1. 用 [UEFI Tool](https://github.com/LongSoft/UEFITool "uefiTool")。 打开想要解锁电流墙的
@@ -42,6 +44,7 @@ bios（module文件夹下已提供）
 8. 解锁400a电流墙效果如下  
 ![教程](module/tutorial/result.jpg  )  
 ### 此文件仅适用于q1hy modt itx版本，其余主板未知。魔改bios须自行承担刷坏的风险与责任。
+
   
   
   
