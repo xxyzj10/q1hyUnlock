@@ -1,7 +1,8 @@
 # q1hyUnlock
 for some disscutions of ICCMAX and vddq unlocking on q1hy modt
 
-## ICCMAX电流墙
+## ICCMAX电流墙 和 ring频率
+##### ICCMAX电流墙
 主板在启动的初始化阶段禁用了VR Current Limit选项，所以即使用AMIBCP或者uefi tool修改了对应
 的数值，在启动阶段也不会生效。
 
@@ -17,9 +18,10 @@ wrmsr 0x150 0x8000001700000280
 wrmsr 0x150 0x8000001600000000   
 rdmsr 0x150
 
-寄存器地址为0x150，设定值为十六进制的0x280，转换为10进制为640，电流墙为其1/4即160A
+寄存器地址为0x150，设定值为十六进制的0x280，转换为10进制为640，电流墙则为其1/4即160A。
 
-### 破解思路  
+
+### ICCMAX电流墙破解思路  
 ##### 方法1. 
 找到主板禁用VR Current Limit选项的代码，用IDA跳过代码  
 ##### 方法2.
@@ -43,10 +45,26 @@ bios（module文件夹下已提供）
 ![教程](module/tutorial/6.png  )  
 8. 解锁400a电流墙效果如下  
 ![教程](module/tutorial/result.jpg  )  
+
+##### ring频率超频
+主板默认开启ring down bin模式且无法通过主板的选项将其关闭，
+所以这里提供另一种思路用于ring超频。  
+
+##### 直接设置ring的最大最小频率为同一数值
+
+具体实现如下：
+    
+写入：   
+wrmsr 0x620 0x000000000000XXYY  
+
+其中XX代表最小频率、YY代表最大频率  
+
+#### 教程参考ICCMAX电路墙的方法2，efi文件已经打包放置于module目录下  
+
 ### 此文件仅适用于q1hy modt itx版本，其余主板未知。魔改bios须自行承担刷坏的风险与责任。
 
   
-  
+===============================================================================    
   
   
 ## 内存VDDQ电压解锁
