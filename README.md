@@ -60,8 +60,8 @@ wrmsr 0x620 0x000000000000XXYY
 其中XX代表最小频率、YY代表最大频率  
  
 #### 教程同ICCMAX方法2，efi文件结尾带47ring的为ring超频版本，未带此字样的为默认版本。
-#### 特别注意：带ring超频的模块会使CPU电压增加,同时主板ring的offset选项失效；考虑能耗比可以选择ring倍频45或47倍频-100 offset版本。
 
+![ring](module/tutorial/45_ring_clock.png  )  
 
 ### 此文件仅适用于q1hy modt itx版本，其余主板未知。魔改bios须自行承担刷坏的风险与责任。
 
